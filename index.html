@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   viewport-fit=cover">
+
+    <meta name="theme-color" content="#f5f5f7">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Мои задачи</title>
+</head>
+
+<body>
+
+<div class="app">
+
+    <header>
+        <div>
+            <div class="small-title">Планировщик</div>
+            <h1>Мои задачи</h1>
+        </div>
+
+        <button id="themeButton" class="icon-button">
+            🌙
+        </button>
+    </header>
+
+
+    <section class="date-card">
+
+        <button id="previousDay">‹</button>
+
+        <div class="selected-date">
+
+            <div id="weekday">
+                Сегодня
+            </div>
+
+            <strong id="dateText"></strong>
+
+        </div>
+
+        <button id="nextDay">›</button>
+
+    </section>
+
+
+    <section class="calendar">
+
+        <input
+            type="date"
+            id="datePicker"
+        >
+
+    </section>
+
+
+    <div class="section-title">
+
+        <span>Задачи</span>
+
+        <span id="taskCounter">
+            0
+        </span>
+
+    </div>
+
+
+    <main id="taskList"></main>
+
+
+    <div id="emptyState" class="empty">
+
+        <div class="empty-icon">
+            ✓
+        </div>
+
+        <h2>Задач нет</h2>
+
+        <p>
+            Добавь первую задачу на этот день
+        </p>
+
+    </div>
+
+
+    <button
+        id="addButton"
+        class="add-button"
+    >
+        <span>+</span>
+        Добавить задачу
+    </button>
+
+</div>
+
+
+<!-- Окно добавления -->
+
+<div
+    id="modal"
+    class="modal hidden"
+>
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Новая задача</h2>
+
+            <button id="closeModal">
+                ×
+            </button>
+
+        </div>
+
+
+        <input
+            id="taskTitle"
+            class="input"
+            type="text"
+            placeholder="Название задачи"
+        >
+
+
+        <label>
+            Дата
+        </label>
+
+        <input
+            id="taskDate"
+            class="input"
+            type="date"
+        >
+
+
+        <label>
+            Категория
+        </label>
+
+        <select
+            id="taskCategory"
+            class="input"
+        >
+
+            <option value="Личное">
+                👤 Личное
+            </option>
+
+            <option value="Работа">
+                💼 Работа
+            </option>
+
+            <option value="Учёба">
+                📚 Учёба
+            </option>
+
+            <option value="Покупки">
+                🛒 Покупки
+            </option>
+
+        </select>
+
+
+        <label>
+            Приоритет
+        </label>
+
+        <div class="priorities">
+
+            <button
+                class="priority low"
+                data-priority="low"
+            >
+                Низкий
+            </button>
+
+            <button
+                class="priority medium active"
+                data-priority="medium"
+            >
+                Средний
+            </button>
+
+            <button
+                class="priority high"
+                data-priority="high"
+            >
+                Высокий
+            </button>
+
+        </div>
+
+
+        <button
+            id="saveTask"
+            class="save-button"
+        >
+            Добавить задачу
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>

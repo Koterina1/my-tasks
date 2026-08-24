@@ -1,0 +1,476 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #f5f5f7;
+    --card: #ffffff;
+    --text: #171717;
+    --secondary: #777;
+    --blue: #007aff;
+    --border: #e5e5e7;
+}
+
+body.dark {
+    --background: #111113;
+    --card: #1c1c1e;
+    --text: #ffffff;
+    --secondary: #999;
+    --border: #333336;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    transition: 0.25s;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.app {
+    width: 100%;
+    max-width: 600px;
+
+    margin: auto;
+
+    padding:
+        max(25px, env(safe-area-inset-top))
+        18px
+        100px
+        18px;
+}
+
+
+/* HEADER */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.small-title {
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+h1 {
+    margin: 3px 0 0;
+
+    font-size: 30px;
+}
+
+.icon-button {
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--card);
+}
+
+
+/* DATE */
+
+.date-card {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px;
+
+    border-radius: 22px;
+
+    background: var(--card);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.06);
+}
+
+.date-card button {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    font-size: 28px;
+}
+
+.selected-date {
+    text-align: center;
+}
+
+.selected-date div {
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+.selected-date strong {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 19px;
+}
+
+
+/* CALENDAR */
+
+.calendar {
+    margin-top: 14px;
+}
+
+.calendar input {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: var(--card);
+    color: var(--text);
+}
+
+
+/* TASKS */
+
+.section-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 25px 5px 12px;
+
+    font-size: 19px;
+    font-weight: 700;
+}
+
+#taskCounter {
+    color: var(--secondary);
+}
+
+
+/* TASK CARD */
+
+.task {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 10px;
+    padding: 15px;
+
+    border-radius: 18px;
+
+    background: var(--card);
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,0.04);
+}
+
+.checkbox {
+    width: 25px;
+    height: 25px;
+
+    border: 2px solid #aaa;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    flex-shrink: 0;
+}
+
+.checkbox.completed {
+    background: #34c759;
+    border-color: #34c759;
+
+    color: white;
+}
+
+.task-info {
+    flex: 1;
+}
+
+.task-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.task.completed .task-title {
+    text-decoration: line-through;
+    color: var(--secondary);
+}
+
+.task-meta {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 6px;
+
+    font-size: 12px;
+
+    color: var(--secondary);
+}
+
+.priority-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    display: inline-block;
+}
+
+.priority-low {
+    background: #34c759;
+}
+
+.priority-medium {
+    background: #ffcc00;
+}
+
+.priority-high {
+    background: #ff3b30;
+}
+
+.delete-button {
+    border: none;
+    background: transparent;
+
+    color: #ff3b30;
+
+    font-size: 21px;
+}
+
+
+/* EMPTY */
+
+.empty {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    color: var(--secondary);
+}
+
+.empty-icon {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    background: var(--card);
+
+    font-size: 30px;
+
+    color: #34c759;
+}
+
+.empty h2 {
+    color: var(--text);
+}
+
+
+/* ADD BUTTON */
+
+.add-button {
+    position: fixed;
+
+    left: 50%;
+
+    bottom:
+        max(20px, env(safe-area-inset-bottom));
+
+    transform: translateX(-50%);
+
+    width: calc(100% - 36px);
+
+    max-width: 560px;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background: var(--blue);
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 25px rgba(0,122,255,0.3);
+}
+
+.add-button span {
+    font-size: 24px;
+    vertical-align: -2px;
+}
+
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    background: rgba(0,0,0,0.45);
+
+    z-index: 10;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 600px;
+
+    padding:
+        25px
+        20px
+        max(25px, env(safe-area-inset-bottom));
+
+    border-radius: 28px 28px 0 0;
+
+    background: var(--card);
+}
+
+.modal-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin-top: 0;
+}
+
+.modal-header button {
+    border: none;
+    background: transparent;
+
+    color: var(--secondary);
+
+    font-size: 30px;
+}
+
+label {
+    display: block;
+
+    margin:
+        16px 0 7px;
+
+    color: var(--secondary);
+
+    font-size: 14px;
+}
+
+.input {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+
+    background: var(--background);
+
+    color: var(--text);
+}
+
+
+/* PRIORITIES */
+
+.priorities {
+    display: flex;
+
+    gap: 8px;
+}
+
+.priority {
+    flex: 1;
+
+    padding: 11px 5px;
+
+    border: 2px solid var(--border);
+
+    border-radius: 12px;
+
+    background: transparent;
+
+    color: var(--text);
+}
+
+.priority.active {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+
+/* SAVE */
+
+.save-button {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: var(--blue);
+
+    color: white;
+
+    font-weight: 700;
+}
